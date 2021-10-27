@@ -12,6 +12,8 @@ list_of_numbers = list(range(5))
 
 question = "_____"
 
+print("Welcome to this word guessing game. I have 10 attempts")
+
 for _ in range(10):
 
     #Calculate number of letters per letter
@@ -42,22 +44,25 @@ for _ in range(10):
     question_list = list(question)
     question_list[position] = highest_letter
     new_question = ''.join(question_list)
+    if len(list_of_words) <10:
+        new_question = list_of_words[0]
     print(new_question)
-    print(dic_1)
+    #print(dic_1)
     answer = input("Y/N? ")
 
     if answer == "Y":
+        if "_" not in new_question:
+            print("Word is guessed. \nEnd of the game.")
+            break
         question = new_question
         list_of_numbers.remove(position)
         list_of_words = [i for i in list_of_words if i[position] == highest_letter]
         bonus_point = 1000
-        print("let's continue with {}".format(question))
-        print(len(list_of_words))
+        print(f"{len(list_of_words)} words left")
 
     if answer == "N":
-        print("ow, let me try again with {}".format(question))
+        if "_" not in new_question:
+            list_of_words.remove(new_question)
         list_of_words = [i for i in list_of_words if i[position] != highest_letter]
         bonus_point = 1000
-        print(len(list_of_words))
-
-#Idee: Tel per positie vanaf letter met meer dan 0 hits, wat het gemiddelde is, en start daar
+        print(f"{len(list_of_words)} words left")
