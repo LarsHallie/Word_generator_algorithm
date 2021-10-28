@@ -31,11 +31,11 @@ for _ in range(10):
         val = max(dic[x])
         name = "{}{}".format(x, let)
         dic_1[name] = val
-        if _ > 0 and x == position:
-            dic_1[name] = dic_1[name] + bonus_point
+        #if _ > 0 and x == position:
+            #dic_1[name] = dic_1[name] + bonus_point
 
-        if _ > 0 and answer == "Y" and x == (position - 1):
-            dic_1[name] = dic_1[name] + bonus_point
+        #if _ > 0 and answer == "Y" and x == (position - 1):
+            #dic_1[name] = dic_1[name] + bonus_point
 
     highest_letter = str(max(dic_1, key=dic_1.get)[1])
     position = int(max(dic_1, key=dic_1.get)[0])
@@ -53,6 +53,7 @@ for _ in range(10):
     if answer == "Y":
         if "_" not in new_question:
             print("Word is guessed. \nEnd of the game.")
+            print(f"{_} attempts needed.")
             break
         question = new_question
         list_of_numbers.remove(position)
