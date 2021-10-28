@@ -1,9 +1,9 @@
 import pandas as pd
 
-list_of_words = pd.read_csv("C:/Users/lars.hallie/Documents/Projects/Private/List_of_words.csv")
+list_of_words = pd.read_csv("List_of_words.csv")
 list_of_words = list_of_words['Overview of words']
 
-list_of_letter = pd.read_csv("C:/Users/lars.hallie/Documents/Projects/Private/List_of_letters.csv")
+list_of_letter = pd.read_csv("List_of_letters.csv")
 list_of_letter = list_of_letter['Letters']
 
 list_of_words = [i for i in list_of_words if len(i) == 5]
